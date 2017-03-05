@@ -17,6 +17,11 @@ public class Fecha {
 		if (dia < 1 || dia > 31) return false;
 		if (mes < 1 || mes > 12) return false;
 		if (anio < 0) return false;
+		if (dia > diasMes()) return false;
+		else return true;
+	}
+	
+	private int diasMes(){
 		// determinamos la cantidad de días del mes:
 		int diasMes = 0;
 		switch (mes) {
@@ -41,9 +46,11 @@ public class Fecha {
 				diasMes = 28;
 			break;
 		}
-		if (dia > diasMes) return false;
-		else return true;
+		return diasMes;
 	}
+	
+	
+	
 	public static void main(String[] args)throws IOException {
 		int dia, mes, anyo;
 		System.out.println ("Introduce un día: ");
