@@ -39,8 +39,7 @@ public class Fecha {
 		case 11 : diasMes = 30;
 		break;
 		case 2 : // verificación de año bisiesto
-			if ( (anio % 400 == 0) || ( (anio % 4 == 0) && (anio % 100 != 0)
-					) )
+			if (bisiesto())
 				diasMes = 29;
 			else
 				diasMes = 28;
@@ -49,7 +48,13 @@ public class Fecha {
 		return diasMes;
 	}
 	
-	
+	private boolean bisiesto(){
+		if( (anio % 400 == 0) || ( (anio % 4 == 0) && (anio % 100 != 0)	) ){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	
 	public static void main(String[] args)throws IOException {
 		int dia, mes, anyo;
